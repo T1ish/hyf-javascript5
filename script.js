@@ -29,7 +29,9 @@ function shownOnSite(responseObject){
 
 	for(let i = 0; i < responseObject.length; i++){
 		const repoLiElement = document.createElement('li');
-		repoLiElement.innerHTML = responseObject[i].name;
-		resultDiv.appendChild(repoLiElement);
-	}
+
+        //For the repository JSON page I would've just used "url" from the object but I guess this is an exercise to concatenate string with variables to get the proper link. :) 
+		repoLiElement.innerHTML = '<a target="_blank" href="' + responseObject[i].html_url + '">' + responseObject[i].name + '</a>' + ' | ' + '<a target="_blank" href="' + 'https://api.github.com/repos/HackYourFuture/' + responseObject[i].name + '">' + "JSON page" + '</a>';
+		resultDiv.appendChild(repoLiElement);     
+	} 
 }
