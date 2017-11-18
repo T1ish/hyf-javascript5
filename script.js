@@ -16,6 +16,9 @@ request.addEventListener('load', function(data){
 		const parsedReponse = JSON.parse(rawResponse);
 		console.log(parsedReponse);
 
+		shownOnSite(parsedReponse);
+
+
 	}else {
 		console.log("Something is wrong cuz I'm not getting data!");
 	}
@@ -32,3 +35,17 @@ request.open('GET', url);
 
 request.send();
 
+
+function shownOnSite(responseObject){
+	const resultDiv = document.querySelector('#showResult');
+
+	for(let i = 0; i < responseObject.length; i++){
+		const repoLiElement = document.createElement('li');
+
+		repoLiElement.innerHTML = responseObject[i].name;
+
+		resultDiv.appendChild(repoLiElement);
+
+	}
+
+}
