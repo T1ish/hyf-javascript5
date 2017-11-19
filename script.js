@@ -45,6 +45,7 @@ function requestUserInfo(userName){
 
 function shownOnSite(responseObject, queryName){
 	const resultDiv = document.querySelector('#showResult');
+	resultDiv.innerHTML = null;
 
 	for(let i = 0; i < responseObject.length; i++){
 		const repoLiElement = document.createElement('li');
